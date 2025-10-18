@@ -18,7 +18,7 @@ body {
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 20px 60px;
     box-sizing: border-box;
 }
 
@@ -55,8 +55,10 @@ body {
 
 /* Thông tin thanh toán */
 .order-info {
+    display: flex;
     flex-direction: column;
     flex: 1;
+    margin: 0;
     min-width: 0;
     padding: 32px 40px;
     border: 2px solid #493B31;
@@ -118,7 +120,10 @@ body {
 
 /* Giỏ hàng */
 .cart-container {
+    display: flex;
+    flex-direction: column;
     flex: 1;
+    margin: 0;
     min-width: 0;
     padding: 32px 40px;
     border: 2px solid #493B31;
@@ -190,6 +195,7 @@ body {
     
     .cart-container,
     .order-info {
+        margin: 10px;
         padding: 20px;
     }
     
@@ -213,6 +219,7 @@ body {
     
     .cart-container,
     .order-info {
+        margin: 15px;
         padding: 24px;
     }
 }
