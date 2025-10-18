@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh Toán</title>
+    <link rel="stylesheet" href="checkout.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="checkout.js"></script>
+</head>
+<body>
+    <nav class="main-nav">
+        <img src="img/logo.png" width="70px" alt="Logo nhà hàng" class="nav-logo">
+        <ul class="nav-menu">
+            <li><a href="#" class="nav-link"><span class="material-icons" aria-hidden="true">home</span>TRANG CHỦ</a></li>
+            <li><a href="#" class="nav-link"><span class="material-icons" aria-hidden="true">event_seat</span>ĐẶT BÀN</a></li>
+            <li><a href="#" class="nav-link"><span class="material-icons" aria-hidden="true">shopping_cart</span>GIỎ HÀNG</a></li>
+        </ul>
+    </nav>
+    <div class="horizontal-container">
+        <div class="cart-container">
+        <h1>Giỏ hàng của bạn</h1>
+        <div id="cart-items" class="cart-items"></div>
+        <div class="cart-total">
+        <span>Tổng cộng:</span>
+        <span id="total-price">0đ</span>
+        </div>
+        </div>
+        <div class="empty-cart">
+            <p>Giỏ hàng đang trống</p>
+        </div>
+        <div class="order-info">
+            <h1>Thông tin thanh toán</h3>
+            <div class="input-info-1">
+                <label for="name">Họ và tên:</label>
+                <input class="checkout-name" id="name" type="text" required minlength="2" maxlength="100" placeholder="Nhập Tên">
+
+                <label for="email">Email:</label>
+                <input class="checkout-email" id="email" type="email" required placeholder="Nhập địa chỉ Email">
+
+                <label for="text">Địa chỉ:</label>
+                <input class="checkout-address" type="text" required placeholder="Nhập địa chỉ">
+            </div>
+            <button class="order-button" type="submit">Đặt món</button>
+        </div>
+    </div>
+</body>
+</html>
