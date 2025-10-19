@@ -1,5 +1,5 @@
 * {
-    font-family: BogueSlab, Arial, monospace;
+    font-family: Arial, monospace;
     margin: 0;
     padding: 0;
     border: 0;
@@ -39,6 +39,7 @@ body {
 }
 
 .nav-menu li a {
+    font-family: "Vollkorn", Arial, serif;
     display: inline-flex;
     align-items: center;
     gap: 4px;
@@ -48,12 +49,11 @@ body {
     font-size: 20px;
 }
 
-.nav-menu li a .material-icons {
+.nav-menu li a > .material-icons {
     font-size: 20px;
-    vertical-align: middle;
 }
 
-/* Thông tin thanh toán */
+/* Thông tin người thanh toán */
 .order-info {
     display: flex;
     flex-direction: column;
@@ -69,6 +69,7 @@ body {
 }
 
 .order-info h1 {
+    align-self: center;
     font-size: 24px;
     margin: 0 0 16px 0;
 }
@@ -80,12 +81,12 @@ body {
     margin-bottom: 16px;
 }
 
-.input-info-1 label {
+.input-info-1 > label {
     font-weight: 600;
     color: #0A0A0A;
 }
 
-.input-info-1 input {
+.input-info-1 > input {
     width: 100%;
     padding: 12px;
     border: 2px solid #ddd;
@@ -100,7 +101,67 @@ body {
     outline: none;
 }
 
-/* Nút thanh toán */
+/* Thẻ thanh toán */
+.credit-card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 24px;
+    margin-bottom: 16px;
+}
+
+.credit-card-info h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #0A0A0A;
+    margin-bottom: 4px;
+}
+
+.credit-card-info label {
+    font-weight: 600;
+    color: #0A0A0A;
+}
+
+/* [type="text"] tránh áp dụng css vào checkbox và các element khác */
+.credit-card-info input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background: none;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+    font-family: Arial, monospace;
+    font-size: 100%;
+}
+
+.credit-card-info input[type="text"]:focus {
+    border-color: #493B31;
+    outline: none;
+}
+
+.card-number-group {
+    display: flex;
+    gap: 10px;
+}
+
+.card-number-group > input {
+    flex: 1;
+    text-align: center;
+}
+
+.expiry-cvv-group {
+    display: flex;
+    gap: 16px;
+}
+
+.expiry-cvv-group > div {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 12px;
+}
+
 .order-button {
     width: 100%;
     padding: 12px 28px;

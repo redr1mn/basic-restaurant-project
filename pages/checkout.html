@@ -6,6 +6,9 @@
     <title>Thanh Toán</title>
     <link rel="stylesheet" href="checkout.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <script src="checkout.js"></script>
 </head>
 <body>
@@ -31,7 +34,7 @@
             <p>Giỏ hàng đang trống</p>
         </div>
         <!-- order info -->
-        <div class="order-info">
+        <form class="order-info">
             <h1>Thông tin thanh toán</h1>
             <div class="input-info-1">
                 <label for="name">Họ và tên:</label>
@@ -41,10 +44,32 @@
                 <input class="checkout-email" id="email" type="email" required placeholder="Nhập địa chỉ Email">
 
                 <label for="text">Địa chỉ:</label>
-                <input class="checkout-address" type="text" required placeholder="Nhập địa chỉ">
+                <input class="checkout-address" id="address" type="text" required placeholder="Nhập địa chỉ">
+            </div>
+            <div class="credit-card-info">
+                <h2>Thông tin thẻ tín dụng</h2>
+                <label for="card-num-1">Số thẻ:</label>
+                <div class="card-number-group">
+                    <input type="text" id="card-num-1" class="card-num-input" pattern="[0-9]{4}" maxlength="4" placeholder="XXXX" required>
+                    <input type="text" class="card-num-input" aria-label="Card number part 2" pattern="[0-9]{4}" maxlength="4" placeholder="XXXX" required>
+                    <input type="text" class="card-num-input" aria-label="Card number part 3" pattern="[0-9]{4}" maxlength="4" placeholder="XXXX" required>
+                    <input type="text" class="card-num-input" aria-label="Card number part 4" pattern="[0-9]{4}" maxlength="4" placeholder="XXXX" required>
+                </div>
+                <label for="card-holder">Tên chủ thẻ:</label>
+                <input type="text" id="card-holder" placeholder="Tên in trên thẻ" required>
+                <div class="expiry-cvv-group">
+                    <div>
+                        <label for="card-expiry">Ngày hết hạn (MM/YY):</label>
+                        <input type="text" id="card-expiry" placeholder="MM/YY" pattern="[0-9]{2}/[0-9]{2}" maxlength="5" required>
+                    </div>
+                    <div>
+                        <label for="card-cvv">CVV:</label>
+                        <input type="text" id="card-cvv" placeholder="XXX" pattern="[0-9]{3,4}" maxlength="4" required>
+                    </div>
+                </div>
             </div>
             <button class="order-button" type="submit">Đặt món</button>
-        </div>
+        </form>
     </div>
 </body>
 </html>

@@ -48,4 +48,43 @@ function displayCart() {
     totalPriceSpan.textContent = `${totalPrice.toLocaleString()}đ`;
 }
 
-document.addEventListener('DOMContentLoaded', displayCart);
+document.addEventListener('DOMContentLoaded', () => {
+    displayCart();
+
+    const checkoutForm = document.querySelector('.order-info'); 
+
+    checkoutForm.addEventListener('submit', (event) => {
+        event.preventDefault(); 
+        
+        const cartItems = getCartItems();
+        
+        if (cartItems.length === 0) {
+            alert('Giỏ hàng của bạn đang trống!');
+            return;
+        }
+        
+        const customerInfo = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            address: document.getElementById('address').value
+        };
+
+        const paymentInfo = {
+            cardHolder: document.getElementById('card-holder').value,
+            cardNumber: "XXXX-XXXX-XXXX-" + document.querySelectorAll('.card-num-input')[3].value
+        };
+
+        const order = {
+            customer: customerInfo,
+            payment: paymentInfo,
+            items: cartItems,
+            totalPrice: document.getElementById('total-price').textContent
+        };
+
+        console.log('ĐƠN HÀNG MỚI:', order);
+        alert('Đặt món thành công! Cảm ơn bạn đã mua hàng.');
+
+        localStorage.removeItem('cart');
+        location.reload(); 
+    });
+});
