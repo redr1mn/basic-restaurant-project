@@ -223,6 +223,18 @@ body {
     font-size: 16px;
 }
 
+.cart-item-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.cart-item-quantity {
+    font-size: 14px;
+    color: #666;
+    font-weight: 500;
+}
+
 .cart-item-price {
     font-weight: 600;
     color: #0A0A0A;
@@ -249,7 +261,7 @@ body {
 }
 
 /* Hoàn thành thanh toán */
-.thank-you-container {
+.payment-successful-container {
     display: none;
     margin: 40px auto;
     max-width: 600px;
@@ -264,19 +276,19 @@ body {
     box-sizing: border-box;
 }
 
-.thank-you-container .checkmark-icon {
+.payment-successful-container .checkmark-icon {
     font-size: 80px;
     color: #28a745;
     margin-bottom: 20px;
 }
 
-.thank-you-container h1 {
+.payment-successful-container h1 {
     font-size: 24px;
     margin-bottom: 16px;
     color: #0A0A0A;
 }
 
-.thank-you-container p {
+.payment-successful-container p {
     font-size: 16px;
     color: #333;
     margin-bottom: 32px;

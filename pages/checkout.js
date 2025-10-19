@@ -31,7 +31,14 @@ function displayCart() {
         
         const itemName = document.createElement('span');
         itemName.className = 'cart-item-name';
-        itemName.textContent = `${item.name} x${item.quantity || 1}`;
+        itemName.textContent = item.name;
+
+        const detailsRight = document.createElement('div');
+        detailsRight.className = 'cart-item-meta';
+
+        const itemQuantity = document.createElement('span');
+        itemQuantity.className = 'cart-item-quantity';
+        itemQuantity.textContent = `Số lượng: ${item.quantity || 1}`;
         
         const itemPrice = document.createElement('span');
         itemPrice.className = 'cart-item-price';
@@ -39,7 +46,9 @@ function displayCart() {
         itemPrice.textContent = `${price.toLocaleString()}đ`;
         
         cartItem.appendChild(itemName);
-        cartItem.appendChild(itemPrice);
+        detailsRight.appendChild(itemQuantity);
+        detailsRight.appendChild(itemPrice);
+        cartItem.appendChild(detailsRight);
         cartItemsDiv.appendChild(cartItem);
         
         totalPrice += price;
