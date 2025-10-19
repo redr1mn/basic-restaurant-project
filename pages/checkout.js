@@ -18,7 +18,7 @@ function displayCart() {
         return;
     }
 
-    cartContainer.style.display = 'block';
+    cartContainer.style.display = 'flex';
     orderInfo.style.display = 'flex';
     emptyCart.style.display = 'none';
 
