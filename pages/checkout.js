@@ -82,9 +82,10 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         console.log('ĐƠN HÀNG MỚI:', order);
-        alert('Đặt món thành công! Cảm ơn bạn đã mua hàng.');
-
         localStorage.removeItem('cart');
-        location.reload(); 
+        const mainContainer = document.querySelector('.horizontal-container');
+        const thankYouMessage = document.getElementById('thank-you-message');
+        mainContainer.style.display = 'none';
+        thankYouMessage.style.display = 'flex';
     });
 });

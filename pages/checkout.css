@@ -248,6 +248,58 @@ body {
     color: #666;
 }
 
+/* Hoàn thành thanh toán */
+.thank-you-container {
+    display: none;
+    margin: 40px auto;
+    max-width: 600px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 32px 40px;
+    border: 2px solid #493B31;
+    border-radius: 15px;
+    background-color: #fff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+}
+
+.thank-you-container .checkmark-icon {
+    font-size: 80px;
+    color: #28a745;
+    margin-bottom: 20px;
+}
+
+.thank-you-container h1 {
+    font-size: 24px;
+    margin-bottom: 16px;
+    color: #0A0A0A;
+}
+
+.thank-you-container p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 32px;
+}
+
+.back-to-home-btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background: linear-gradient(to right, #BC2828, #D84F38);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.back-to-home-btn:hover {
+    background: linear-gradient(to left, #A02020, #C03828);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .horizontal-container {
