@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Facebook</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="left">
+        <h1>facebook</h1>
+        <p>
+          Facebook giúp bạn kết nối và chia sẻ<br />
+          với mọi người trong cuộc sống của bạn.
+        </p>
+      </div>
+      <div class="right">
+        <form class="login-box" id="loginForm" onsubmit="dangnhap(event)">
+          <input
+            type="text"
+            id="email"
+            placeholder="Email hoặc số điện thoại"
+          />
+          <input type="password" id="password" placeholder="Mật khẩu" />
+          <button type="submit" class="login-btn">Đăng nhập</button>
+          <a href="#" class="forgot">Quên mật khẩu?</a>
+          <hr />
+          <button type="button" class="create-btn">Tạo tài khoản mới</button>
+        </form>
+        <p class="create-page">
+          <b>Tạo Trang</b> dành cho người nổi tiếng, thương hiệu hoặc doanh<br />
+          nghiệp.
+        </p>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
