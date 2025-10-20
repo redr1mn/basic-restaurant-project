@@ -18,7 +18,7 @@ function displayCart() {
         return;
     }
 
-    cartContainer.style.display = 'block';
+    cartContainer.style.display = 'flex';
     orderInfo.style.display = 'flex';
     emptyCart.style.display = 'none';
 
@@ -31,7 +31,14 @@ function displayCart() {
         
         const itemName = document.createElement('span');
         itemName.className = 'cart-item-name';
-        itemName.textContent = `${item.name} x${item.quantity || 1}`;
+        itemName.textContent = item.name;
+
+        const detailsRight = document.createElement('div');
+        detailsRight.className = 'cart-item-meta';
+
+        const itemQuantity = document.createElement('span');
+        itemQuantity.className = 'cart-item-quantity';
+        itemQuantity.textContent = `Số lượng: ${item.quantity || 1}`;
         
         const itemPrice = document.createElement('span');
         itemPrice.className = 'cart-item-price';
@@ -39,7 +46,9 @@ function displayCart() {
         itemPrice.textContent = `${price.toLocaleString()}đ`;
         
         cartItem.appendChild(itemName);
-        cartItem.appendChild(itemPrice);
+        detailsRight.appendChild(itemQuantity);
+        detailsRight.appendChild(itemPrice);
+        cartItem.appendChild(detailsRight);
         cartItemsDiv.appendChild(cartItem);
         
         totalPrice += price;
@@ -48,4 +57,44 @@ function displayCart() {
     totalPriceSpan.textContent = `${totalPrice.toLocaleString()}đ`;
 }
 
-document.addEventListener('DOMContentLoaded', displayCart);
+document.addEventListener('DOMContentLoaded', () => {
+    displayCart();
+
+    const checkoutForm = document.querySelector('.order-info'); 
+
+    checkoutForm.addEventListener('submit', (event) => {
+        event.preventDefault(); 
+        
+        const cartItems = getCartItems();
+        
+        if (cartItems.length === 0) {
+            alert('Giỏ hàng của bạn đang trống!');
+            return;
+        }
+        
+        const customerInfo = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            address: document.getElementById('address').value
+        };
+
+        const paymentInfo = {
+            cardHolder: document.getElementById('card-holder').value,
+            cardNumber: "XXXX-XXXX-XXXX-" + document.querySelectorAll('.card-num-input')[3].value
+        };
+
+        const order = {
+            customer: customerInfo,
+            payment: paymentInfo,
+            items: cartItems,
+            totalPrice: document.getElementById('total-price').textContent
+        };
+
+        console.log('ĐƠN HÀNG MỚI:', order);
+        localStorage.removeItem('cart');
+        const mainContainer = document.querySelector('.horizontal-container');
+        const thankYouMessage = document.getElementById('thank-you-message');
+        mainContainer.style.display = 'none';
+        thankYouMessage.style.display = 'flex';
+    });
+});
