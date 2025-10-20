@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đặt bàn - Hotpot & Grill</title>
+
+    <!-- Gọi CSS chung -->
+    <link rel="stylesheet" href="css/stylechung.css" />
+
+    <!-- Gọi CSS riêng của trang đặt bàn -->
+    <link rel="stylesheet" href="css/styledatcho.css" />
+  </head>
+  <body>
+    <!-- NAV CHUNG -->
+    <header>
+      <div class="container header-container">
+        <h1 class="logo">Hotpot & Grill</h1>
+        <nav>
+          <ul>
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="#">Thực đơn</a></li>
+            <li><a href="datban.html" class="active">Đặt bàn</a></li>
+            <li><a href="#">Liên hệ</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- NỘI DUNG RIÊNG CỦA TRANG ĐẶT BÀN -->
+    <main class="booking">
+      <div class="container">
+        <h2>Đặt bàn trực tuyến</h2>
+        <form class="booking-form">
+          <label>Họ và tên:</label>
+          <input type="text" placeholder="Nguyễn Văn A" required />
+
+          <label>Số điện thoại:</label>
+          <input type="tel" placeholder="0123 456 789" required />
+
+          <label>Ngày:</label>
+          <input type="date" required />
+
+          <label>Giờ:</label>
+          <input type="time" required />
+
+          <label>Số lượng khách:</label>
+          <input type="number" min="1" max="20" value="2" />
+
+          <button type="submit" class="btn primary">Xác nhận đặt bàn</button>
+        </form>
+      </div>
+    </main>
+
+    <!-- FOOTER CHUNG -->
+    <footer>
+      <div class="container footer-container">
+        <p>© 2025 Hotpot & Grill. All rights reserved.</p>
+        <div class="social-links">
+          <a href="#"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

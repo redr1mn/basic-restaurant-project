@@ -1,11 +1,123 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>    anHello dasdasmanaad </h1>
-</body>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nhà hàng Lẩu & Nướng</title>
+    <link rel="stylesheet" href="css/styletrangchu.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/yourkitid.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Thư viện Swiper.js cho slider -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header>
+      <div class="container header-container">
+        <h1 class="logo">Hotpot & Grill</h1>
+        <nav>
+          <ul>
+            <li><a href="#">Trang chủ</a></li>
+            <li><a href="#">Thực đơn</a></li>
+            <li><a href="Datcho.html">Đặt bàn</a></li>
+            <li><a href="#">Liên hệ</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="hero-badge">
+          <i class="fa-solid fa-hat-chef"></i>
+        </div>
+        <h1>Nhà hàng <span>Lẩu & Nướng</span></h1>
+        <p>
+          Trải nghiệm ẩm thực với nguyên liệu tươi ngon, không gian sang trọng
+        </p>
+        <div class="hero-buttons">
+          <button class="btn primary">Xem Thực Đơn</button>
+          <button class="btn outline">Đặt Bàn Ngay</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDER SECTION -->
+    <section class="slider-section">
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img
+              src="https://tse4.mm.bing.net/th/id/OIP.Q7YZrd4EzmB0xlD72zI1mwHaE7?pid=Api&P=0&h=180"
+              alt="Nguyên liệu tươi"
+            />
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="https://tse4.mm.bing.net/th/id/OIP.IapRrMia3w7DPju7JXNoTwHaEq?pid=Api&P=0&h=180"
+              alt="Quy trình nướng"
+            />
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="https://tse2.mm.bing.net/th/id/OIP.ZhhMkEVO-XVTWzKNISDSsAHaEc?pid=Api&P=0&h=180"
+              alt="Không gian sang trọng"
+            />
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="https://tse2.mm.bing.net/th/id/OIP.Q5iY-j7ukuYCadH_285UBgHaE7?pid=Api&P=0&h=180"
+            />
+          </div>
+          <div class="swiper-slide">
+            <img
+              src="https://tse1.mm.bing.net/th/id/OIP.erarozm_uhzTK_HT6334eAHaE8?pid=Api&P=0&h=180"
+            />
+          </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container footer-container">
+        <p style="font-size: 15px">
+          © 2025 Hotpot & Grill. All rights reserved.
+        </p>
+        <div class="social-links">
+          <a href="#"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Thư viện Swiper.js -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+      var swiper = new Swiper(".swiper-container", {
+        loop: true,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        autoplay: {
+          delay: 3000,
+        },
+      });
+    </script>
+  </body>
 </html>

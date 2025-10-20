@@ -1,0 +1,338 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* VARIABLES (BẢNG MÀU) */
+:root {
+  --background: #171411;
+  --foreground: #fdf9eb;
+  --card: #241c17;
+  --primary: #bc2828;
+  --secondary: #eaad1f;
+  --muted: #3a2f28;
+  --border: #493b31;
+  --destructive: #f23838;
+  --gradient-start: #bc2828;
+  --gradient-end: #d84f38;
+}
+
+/* GLOBAL */
+body {
+  font-family: "Poppins", sans-serif;
+  color: var(--foreground);
+  background-color: var(--background);
+}
+
+/* CONTAINER */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* HEADER */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(23, 20, 17, 0.75);
+  backdrop-filter: blur(8px);
+  z-index: 100;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+nav a {
+  color: var(--foreground);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: var(--primary);
+}
+
+.search-bar {
+  width: 200px;
+  padding: 5px 10px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--foreground);
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.search-bar:focus {
+  border-color: var(--primary);
+}
+
+.login-btn {
+  color: var(--foreground);
+  text-decoration: none;
+  padding: 6px 15px;
+  background-color: var(--primary);
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+  background-color: var(--gradient-end);
+}
+
+/* HERO SECTION */
+.hero {
+  position: relative;
+  height: 90vh;
+  background: url("https://www.chuphinhsanpham.vn/wp-content/uploads/2022/09/studio-chup-anh-mon-an-dong-nai-lam-menu-chuyen-nghiep-21.jpg")
+    center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 60px; /* Để tránh chồng lấp với header fixed */
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(23, 20, 17, 0.6);
+  backdrop-filter: blur(6px);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  padding: 30px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 8px 20px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+}
+
+.hero-badge i {
+  color: var(--secondary);
+}
+
+.hero-badge span {
+  font-size: 20px;
+  color: var(--secondary);
+}
+
+.hero h1 {
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--foreground);
+}
+
+.hero h1 span {
+  color: var(--secondary);
+  display: block;
+}
+
+.hero p {
+  font-size: 18px;
+  color: #ddd;
+  margin: 15px 0 20px;
+  opacity: 0.9;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.btn {
+  padding: 12px 25px;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-weight: 600;
+}
+
+/* PRIMARY BUTTON (GRADIENT) */
+.btn.primary {
+  background: linear-gradient(
+    90deg,
+    var(--gradient-start),
+    var(--gradient-end)
+  );
+  border: none;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(220, 70, 60, 0.4);
+}
+
+.btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(220, 70, 60, 0.5);
+}
+
+/* OUTLINE BUTTON */
+.btn.outline {
+  background: transparent;
+  border: 2px solid var(--foreground);
+  color: var(--foreground);
+}
+
+.btn.outline:hover {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+/* SLIDER SECTION */
+.slider-section {
+  padding: 50px 0;
+  background-color: var(--card);
+}
+
+.swiper-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.swiper-slide img {
+  width: 70%;
+  height: 250px;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--secondary);
+}
+
+/* FOOTER */
+footer {
+  background: var(--card);
+  padding: 25px 10px;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.footer-container p {
+  color: var(--foreground);
+  font-size: 15px;
+}
+
+.social-links a {
+  color: var(--foreground);
+  margin: 0 10px;
+  font-size: 22px;
+  transition: color 0.3s;
+}
+
+.social-links a:hover {
+  color: var(--primary);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    gap: 15px;
+    background: rgba(23, 20, 17, 0.95);
+    padding: 20px;
+    border-radius: 10px;
+    position: absolute;
+    top: 100%;
+    right: 20px;
+    display: none; /* Ẩn menu trên mobile ban đầu */
+  }
+
+  nav ul.active {
+    display: flex; /* Hiển thị menu khi có class 'active' */
+  }
+
+  .header-container {
+    position: relative;
+  }
+
+  .menu-toggle {
+    display: block;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--foreground);
+  }
+
+  .search-bar,
+  .login-btn {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .hero h1 {
+    font-size: 38px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .swiper-container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    height: 70vh;
+    margin-top: 50px;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .swiper-slide img {
+    height: 200px;
+  }
+}

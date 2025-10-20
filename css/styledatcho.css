@@ -1,0 +1,55 @@
+/* === STYLE RIÊNG CHO TRANG ĐẶT BÀN === */
+.booking {
+  padding: 120px 0;
+  min-height: 80vh;
+  background-color: var(--card);
+}
+
+.booking h2 {
+  text-align: center;
+  color: var(--secondary);
+  margin-bottom: 30px;
+  font-size: 28px;
+}
+
+.booking-form {
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.booking-form label {
+  font-weight: 500;
+  color: var(--foreground);
+}
+
+.booking-form input {
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--foreground);
+}
+
+.booking-form input:focus {
+  border-color: var(--secondary);
+  outline: none;
+}
+
+.booking-form button {
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.booking-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(220, 70, 60, 0.4);
+}

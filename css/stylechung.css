@@ -1,0 +1,101 @@
+/* ==== CSS CHUNG: NAV + FOOTER ==== */
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --background: #171411;
+  --foreground: #fdf9eb;
+  --primary: #bc2828;
+  --secondary: #eaad1f;
+  --card: #241c17;
+  --border: #493b31;
+}
+
+/* BODY CHUNG */
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* HEADER / NAV */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(23, 20, 17, 0.75);
+  backdrop-filter: blur(8px);
+  z-index: 100;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.header-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--secondary);
+  text-transform: uppercase;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+nav a {
+  color: var(--foreground);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+  color: var(--primary);
+}
+
+/* FOOTER */
+footer {
+  background: var(--card);
+  padding: 25px 10px;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.footer-container p {
+  color: var(--foreground);
+  font-size: 15px;
+}
+
+.social-links a {
+  color: var(--foreground);
+  margin: 0 10px;
+  font-size: 22px;
+  transition: color 0.3s;
+}
+
+.social-links a:hover {
+  color: var(--primary);
+}
