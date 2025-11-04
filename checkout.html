@@ -6,11 +6,14 @@
     <title>Thanh Toán</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/checkout.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/checkout.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
     <script src="js/checkout.js"></script>
 </head>
 <body>
@@ -18,9 +21,9 @@
         <!-- <img src="img/logo.png" width="70px" alt="Logo nhà hàng" class="nav-logo"> -->
         <p>Hotpot & Grill</p>
         <ul class="nav-menu">
-            <li><a href="#" class="nav-link"><span class="material-icons" aria-hidden="true">home</span>TRANG CHỦ</a></li>
-            <li><a href="#" class="nav-link"><span class="material-icons" aria-hidden="true">event_seat</span>ĐẶT BÀN</a></li>
-            <li><a href="#" class="nav-link"><span class="material-icons" aria-hidden="true">shopping_cart</span>GIỎ HÀNG</a></li>
+            <li><a href="#"><span class="material-icons" aria-hidden="true">home</span><span class="nav-label">TRANG CHỦ</span></a></li>
+            <li><a href="#"><span class="material-icons" aria-hidden="true">event_seat</span><span class="nav-label">ĐẶT BÀN</span></a></li>
+            <li><a href="#"><span class="material-icons" aria-hidden="true">shopping_cart</span><span class="nav-label">GIỎ HÀNG</span></a></li>
         </ul>
     </nav>
     
@@ -59,10 +62,10 @@
                         <h2>Thông tin thẻ tín dụng</h2>
                         <label for="card-num-1">Số thẻ:</label>
                         <div class="card-number-group">
-                            <input type="text" id="card-num-1" class="card-num-input" pattern="[0-9]{4}" maxlength="4" placeholder="XXXX" required>
-                            <input type="text" class="card-num-input" aria-label="Card number part 2" pattern="[0-9]{4}" maxlength="4" placeholder="XXXX" required>
-                            <input type="text" class="card-num-input" aria-label="Card number part 3" pattern="[0-9]{4}" maxlength="4" placeholder="XXXX" required>
-                            <input type="text" class="card-num-input" aria-label="Card number part 4" pattern="[0-9]{4}" maxlength="4" placeholder="XXXX" required>
+                            <input type="text" class="card-num-input" aria-label="Card first 4 numbers" pattern="[0-9]{4}" maxlength="4" placeholder="XXXX" required>
+                            <input type="text" class="card-num-input" aria-label="Card second 4 numbers" pattern="[0-9]{4}" maxlength="4" placeholder="XXXX" required>
+                            <input type="text" class="card-num-input" aria-label="Card third 4 numbers" pattern="[0-9]{4}" maxlength="4" placeholder="XXXX" required>
+                            <input type="text" class="card-num-input" aria-label="Card last 4 numbers" pattern="[0-9]{4}" maxlength="4" placeholder="XXXX" required>
                         </div>
                         <label for="card-holder">Tên chủ thẻ:</label>
                         <input type="text" id="card-holder" placeholder="Tên in trên thẻ" required>
