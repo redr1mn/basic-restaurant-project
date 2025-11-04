@@ -1,9 +1,9 @@
 * {
-    font-family: Arial, monospace;
     margin: 0;
     padding: 0;
     border: 0;
     font-size: 100%;
+    box-sizing: border-box;
 }
 
 body {
@@ -46,9 +46,16 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    min-height: 64px;
     background-color: rgba(23, 20, 17, 0.75);
     backdrop-filter: blur(10px);
-    padding: 1em;
+}
+
+.main-nav > p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    color: #f5f5f5;
 }
 
 .nav-menu {
@@ -57,25 +64,37 @@ body {
     list-style: none;
     align-items: center;
     margin: 0;
+    padding: 0;
 }
 
 .nav-menu > p {
     margin: 0;
 }
 
+.nav-menu li {
+    display: flex;
+    align-items: center;
+}
+
 .nav-menu li a {
     font-family: "Vollkorn", Arial, serif;
     display: inline-flex;
     align-items: center;
-    gap: 4px;
+    gap: 6px;
     text-decoration: none;
     color: #FDF9EB;
     font-weight: 600;
     font-size: 20px;
+    line-height: 1;
 }
 
 .nav-menu li a > .material-icons {
     font-size: 20px;
+    line-height: 1;
+}
+
+.nav-label {
+    line-height: 1;
 }
 
 /* Thông tin người thanh toán */
