@@ -27,13 +27,6 @@ body {
 */
 
 /* Đặt margin cho 2 thẻ ở kích thước laptop */
-@media (min-width: 992px) {
-    .container-fluid {
-        padding-left: 60px;
-        padding-right: 60px;
-    }
-}
-
 @media (min-width: 1200px) {
     .container-fluid {
         max-width: 1400px;
@@ -43,21 +36,21 @@ body {
 
 /* Thanh điều hướng */
 .main-nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
     min-height: 64px;
     background-color: rgba(23, 20, 17, 0.75);
     backdrop-filter: blur(10px);
 }
 
-.main-nav > p {
+.main-nav p,
+.main-nav ul {
     margin: 0;
-    display: flex;
-    align-items: center;
+}
+
+.main-nav > p {
     color: #f5f5f5;
 }
 
+/*
 .nav-menu {
     display: flex;
     gap: 25px;
@@ -75,14 +68,11 @@ body {
     display: flex;
     align-items: center;
 }
+*/
 
 .nav-menu li a {
     font-family: "Vollkorn", Arial, serif;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    text-decoration: none;
-    color: #FDF9EB;
+    color: #FDF9EB !important;
     font-weight: 600;
     font-size: 20px;
     line-height: 1;
