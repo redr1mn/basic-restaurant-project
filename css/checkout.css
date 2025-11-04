@@ -26,11 +26,30 @@ body {
 }
 */
 
-/* Đặt margin cho 2 thẻ ở kích thước laptop */
+/* Các thuộc tính riêng cho các kích cỡ màn hình */
 @media (min-width: 1200px) {
     .container-fluid {
         max-width: 1400px;
         margin: 0 auto;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .nav-menu li a {
+        flex-direction: column;
+        gap: 0 !important;
+        font-size: 16px;
+    }
+
+    .nav-label {
+        font-size: 11px;
+        font-family: Arial, sans-serif;
+        font-weight: normal;
+        margin-top: 2px;
+    }
+
+    .nav-menu li a::after {
+        display: none;
     }
 }
 
@@ -75,16 +94,31 @@ body {
     color: #FDF9EB !important;
     font-weight: 600;
     font-size: 20px;
-    line-height: 1;
+    position: relative;
+    padding-bottom: 2px;
+}
+
+.nav-menu li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #FDF9EB;
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-menu li a:hover::after {
+    width: 100%;
 }
 
 .nav-menu li a > .material-icons {
     font-size: 20px;
-    line-height: 1;
 }
 
 .nav-label {
-    line-height: 1;
+    vertical-align: middle; /* this doesn't work */
 }
 
 /* Thông tin người thanh toán */
