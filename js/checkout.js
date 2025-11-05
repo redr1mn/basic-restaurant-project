@@ -11,16 +11,11 @@ function displayCart() {
     const cartItemsDiv = document.getElementById('cart-items');
     const totalPriceSpan = document.getElementById('total-price');
 
-    if (cartItems.length === 0) {
-        cartContainer.style.display = 'none';
-        orderInfo.style.display = 'none';
-        emptyCart.style.display = 'block';
-        return;
-    }
-
-    cartContainer.style.display = 'flex';
-    orderInfo.style.display = 'flex';
-    emptyCart.style.display = 'none';
+    const isEmpty = cartItems.length === 0;
+    cartContainer.style.display = isEmpty ? 'none' : 'flex';
+    orderInfo.style.display = isEmpty ? 'none' : 'flex';
+    emptyCart.style.display = isEmpty ? 'flex' : 'none';
+    if (isEmpty) return;
 
     let totalPrice = 0;
     cartItemsDiv.innerHTML = '';
@@ -108,10 +103,21 @@ document.addEventListener('DOMContentLoaded', () => {
             address: document.getElementById('address').value
         };
 
+        const cardHolderElem = document.getElementById('card-holder');
+        const cardHolder = cardHolderElem && cardHolderElem.value.trim() ? cardHolderElem.value.trim() : 'N/A';
+        const lastFour = (cardInputsArray[3]?.value || '').replace(/\D/g, '').slice(-4) || '0000';
+
+        const paymentInfo = {
+            cardHolder,
+            cardNumber: `XXXX-XXXX-XXXX-${lastFour}`
+        };
+
+        /*
         const paymentInfo = {
             cardHolder: document.getElementById('card-holder')?.value || 'N/A',
             cardNumber: "XXXX-XXXX-XXXX-" + cardInputsArray[3].value
         };
+        */
 
         const order = {
             customer: customerInfo,
@@ -124,7 +130,6 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('ĐƠN HÀNG MỚI:', order);
         localStorage.removeItem('cart');
         
-        // Updated: Target the Bootstrap container instead of .horizontal-container
         const mainContainer = document.querySelector('.container-fluid');
         const thankYouMessage = document.getElementById('thank-you-message');
         mainContainer.style.display = 'none';
