@@ -60,17 +60,11 @@ document.addEventListener('DOMContentLoaded', () => {
     cardInputs.forEach((input, index) => {
         input.addEventListener('input', (e) => {
             const value = e.target.value;
-            
-            // Only allow numbers
             e.target.value = value.replace(/[^0-9]/g, '');
-            
-            // Auto-focus next input when 4 digits are entered
             if (e.target.value.length === 4 && index < cardInputs.length - 1) {
                 cardInputs[index + 1].focus();
             }
         });
-
-        // Allow backspace to move to previous input
         input.addEventListener('keydown', (e) => {
             if (e.key === 'Backspace' && e.target.value === '' && index > 0) {
                 cardInputs[index - 1].focus();
@@ -80,21 +74,76 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const checkoutForm = document.querySelector('.order-info'); 
 
+    // Toggle UI for payment methods (simple image QR)
+    const qrSection = document.querySelector('.qr-payment-info');
+    const cardSection = document.querySelector('.credit-card-info');
+    const paymentRadios = document.querySelectorAll('input[name="payment-method"]');
+    const qrConfirmBtn = document.querySelector('.qr-confirm-button');
+
+    let qrConfirmed = false;
+
+    function setCardInputsDisabled(disabled) {
+        if (!cardSection) return;
+        cardSection.querySelectorAll('input').forEach(inp => { inp.disabled = disabled; });
+    }
+
+    function resetQrConfirmation() {
+        qrConfirmed = false;
+        if (qrConfirmBtn) {
+            qrConfirmBtn.disabled = false;
+            qrConfirmBtn.classList.remove('confirmed');
+            qrConfirmBtn.textContent = 'Đã thanh toán bằng mã QR';
+        }
+    }
+
+    function togglePaymentUI() {
+        const method = document.querySelector('input[name="payment-method"]:checked')?.value || 'card';
+        if (method === 'qr') {
+            if (qrSection) qrSection.style.display = 'flex';
+            if (cardSection) cardSection.style.display = 'none';
+            setCardInputsDisabled(true);
+        } else {
+            if (qrSection) qrSection.style.display = 'none';
+            if (cardSection) cardSection.style.display = 'flex';
+            setCardInputsDisabled(false);
+            resetQrConfirmation();
+        }
+    }
+
+    paymentRadios.forEach(r => r.addEventListener('change', togglePaymentUI));
+    togglePaymentUI();
+
+    if (qrConfirmBtn) {
+        qrConfirmBtn.addEventListener('click', () => {
+            qrConfirmed = true;
+            qrConfirmBtn.disabled = true;
+            qrConfirmBtn.classList.add('confirmed');
+            qrConfirmBtn.textContent = 'Đã xác nhận thanh toán';
+        });
+    }
+
     checkoutForm.addEventListener('submit', (event) => {
         event.preventDefault(); 
         
         const cartItems = getCartItems();
-        
         if (cartItems.length === 0) {
             alert('Giỏ hàng của bạn đang trống!');
             return;
         }
-        
-        // Validate card inputs
-        const cardInputsArray = Array.from(document.querySelectorAll('.card-num-input'));
-        if (cardInputsArray.length < 4 || cardInputsArray.some(input => input.value.length !== 4)) {
-            alert('Vui lòng nhập đầy đủ số thẻ!');
-            return;
+
+        const method = document.querySelector('input[name="payment-method"]:checked')?.value || 'card';
+
+        if (method === 'card') {
+            const cardInputsArray = Array.from(document.querySelectorAll('.card-num-input'));
+            if (cardInputsArray.length < 4 || cardInputsArray.some(input => input.value.length !== 4)) {
+                alert('Vui lòng nhập đầy đủ số thẻ!');
+                return;
+            }
+        } else {
+            if (!qrConfirmed) {
+                alert('Vui lòng xác nhận đã thanh toán bằng mã QR.');
+                return;
+            }
         }
 
         const customerInfo = {
@@ -103,21 +152,16 @@ document.addEventListener('DOMContentLoaded', () => {
             address: document.getElementById('address').value
         };
 
-        const cardHolderElem = document.getElementById('card-holder');
-        const cardHolder = cardHolderElem && cardHolderElem.value.trim() ? cardHolderElem.value.trim() : 'N/A';
-        const lastFour = (cardInputsArray[3]?.value || '').replace(/\D/g, '').slice(-4) || '0000';
-
-        const paymentInfo = {
-            cardHolder,
-            cardNumber: `XXXX-XXXX-XXXX-${lastFour}`
-        };
-
-        /*
-        const paymentInfo = {
-            cardHolder: document.getElementById('card-holder')?.value || 'N/A',
-            cardNumber: "XXXX-XXXX-XXXX-" + cardInputsArray[3].value
-        };
-        */
+        let paymentInfo = {};
+        if (method === 'card') {
+            const cardInputsArray = Array.from(document.querySelectorAll('.card-num-input'));
+            const cardHolderElem = document.getElementById('card-holder');
+            const cardHolder = cardHolderElem && cardHolderElem.value.trim() ? cardHolderElem.value.trim() : 'N/A';
+            const lastFour = (cardInputsArray[3]?.value || '').replace(/\D/g, '').slice(-4) || '0000';
+            paymentInfo = { method: 'card', cardHolder, cardNumber: `XXXX-XXXX-XXXX-${lastFour}` };
+        } else {
+            paymentInfo = { method: 'qr' };
+        }
 
         const order = {
             customer: customerInfo,

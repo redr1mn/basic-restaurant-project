@@ -22,6 +22,7 @@
         <p class="my-0 logo">HOTPOT & GRILL</p>
         <ul class="nav-menu d-flex gap-3 gap-lg-4 list-unstyled align-items-center my-0">
             <li><a href="index.html" class="text-decoration-none d-inline-flex align-items-center gap-1"><span class="material-icons" aria-hidden="true">home</span><span class="nav-label">TRANG CHỦ</span></a></li>
+            <li><a href="#" class="text-decoration-none d-inline-flex align-items-center gap-1"><span class="material-icons" aria-hidden="true">menu_book</span><span class="nav-label">THỰC ĐƠN</span></a></li>
             <li><a href="#" class="text-decoration-none d-inline-flex align-items-center gap-1"><span class="material-icons" aria-hidden="true">event_seat</span><span class="nav-label">ĐẶT BÀN</span></a></li>
             <li><a href="#" class="text-decoration-none d-inline-flex align-items-center gap-1"><span class="material-icons" aria-hidden="true">shopping_cart</span><span class="nav-label">GIỎ HÀNG</span></a></li>
         </ul>
@@ -57,6 +58,24 @@
 
                         <label for="text">Địa chỉ:</label>
                         <input class="checkout-address" id="address" type="text" required placeholder="Nhập địa chỉ">
+                    </div>
+                    <div class="payment-method">
+                        <h2>Phương thức thanh toán</h2>
+                        <div class="payment-method-options">
+                            <label>
+                                <input type="radio" name="payment-method" value="card" checked>
+                                Thẻ tín dụng
+                            </label>
+                            <label>
+                                <input type="radio" name="payment-method" value="qr">
+                                QR Code
+                            </label>
+                        </div>
+                    </div>
+                    <div class="qr-payment-info" aria-live="polite">
+                        <p>Vui lòng thanh toán qua app ngân hàng bằng mã QR sau đây:</p>
+                        <img src="images/qr.jpg" alt="Mã QR thanh toán" class="qr-image">
+                        <button type="button" class="qr-confirm-button">Đã thanh toán bằng mã QR</button>
                     </div>
                     <div class="credit-card-info">
                         <h2>Thông tin thẻ tín dụng</h2>

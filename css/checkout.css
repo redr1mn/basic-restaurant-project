@@ -58,6 +58,7 @@ body {
     min-height: 64px;
     background-color: rgba(23, 20, 17, 0.75);
     backdrop-filter: blur(10px);
+    border-bottom: 1px solid #493b31;
 }
 
 .logo {
@@ -165,6 +166,83 @@ body {
 .input-info-1 input:focus {
     border-color: #493B31;
     outline: none;
+}
+
+/* Lựa chọn thanh toán */
+.payment-method {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.payment-method h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #0A0A0A;
+    margin-bottom: 4px;
+}
+
+.payment-method-options {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.payment-method-options label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #0A0A0A;
+    cursor: pointer;
+}
+
+.payment-method-options input[type="radio"] {
+    cursor: pointer;
+    accent-color: #BC2828;
+}
+
+/* QR Code (image) */
+.qr-payment-info {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 16px;
+    margin-bottom: 20px;
+    padding: 16px;
+    border: 2px dashed #ddd;
+    border-radius: 12px;
+    background-color: #ffffff;
+}
+
+.qr-image {
+    width: 100%;
+    height: auto;
+    max-width: 320px;
+    margin: 0 auto;
+    display: block;
+    background: #f7f7f7;
+}
+
+.qr-confirm-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #1E88E5;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.qr-confirm-button:hover {
+    background-color: #1565C0;
+}
+
+.qr-confirm-button.confirmed {
+    background-color: #2E7D32;
+    cursor: default;
 }
 
 /* Thẻ thanh toán */
@@ -391,3 +469,4 @@ body {
 .back-to-home-btn:hover {
     background: linear-gradient(to left, #A02020, #C03828);
 }
+
