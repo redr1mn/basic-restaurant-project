@@ -1,0 +1,247 @@
+/* Biến màu chung (Token - Bảng màu dark mode) */
+:root {
+    --primary: #BC2828;
+    --secondary: #EAAD1F;
+    --text: #FDF9EB;
+    --bg: #171411;
+    --card-bg: #241C17;
+    --muted: #3A2F28;
+    --border: #493B31;
+    --destructive: #F23838;
+    
+    --gradient-start: #BC2828;
+    --gradient-end: #D84F38;
+
+    --radius: 8px;
+    --border-style: 1px solid var(--border);
+}
+
+/* Reset cơ bản */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* ---- Component .btn chung ---- */
+/* (Style .btn này có thể đã có trong styletrangchu.css, 
+   nhưng chúng ta định nghĩa lại ở đây để đảm bảo các nút của bạn hoạt động) */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: linear-gradient(to right, #a53125, #c0392b);
+    box-shadow: 0 4px 10px rgba(216, 79, 56, 0.2);
+}
+
+/* ==================================================
+ PHẦN STYLE NAVBAR CŨ ĐÃ BỊ XÓA BỎ 
+ (File styletrangchu.css sẽ lo việc này)
+==================================================
+*/
+
+/* ---- Style bổ sung cho Nút Giỏ Hàng trên Navbar chung ---- */
+.btn-cart {
+    padding: 8px 16px;
+    font-size: 14px;
+    /* Bỏ text "Xem giỏ hàng" nếu muốn, chỉ giữ icon */
+    /* font-size: 18px; padding: 10px 12px; */ 
+}
+
+.btn-cart .badge {
+    background-color: var(--secondary);
+    color: var(--bg);
+    border-radius: 50%;
+    padding: 2px 8px;
+    font-size: 12px;
+    margin-left: 8px;
+    font-weight: bold;
+}
+
+/* Đánh dấu link "active" trên navbar */
+.header-container nav ul li a.active {
+    color: var(--primary); /* Hoặc màu vàng: var(--secondary) */
+    font-weight: 700;
+}
+
+
+/* ---- Phần Menu chính (Thiết kế của bạn - Giữ nguyên) ---- */
+.menu-header {
+    text-align: center;
+    /* Thêm padding-top để nội dung không bị navbar (nếu là fixed) che mất */
+    padding-top: 100px; 
+    margin-bottom: 40px;
+}
+
+.menu-header h1 {
+    font-size: 2.8rem;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.menu-header p {
+    font-size: 1.1rem;
+    color: var(--text);
+    opacity: 0.8;
+}
+
+/* Bộ lọc */
+.category-filters {
+    text-align: center;
+    margin-bottom: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.filter-btn {
+    background: var(--muted);
+    color: var(--text);
+}
+
+.filter-btn:hover {
+    background: var(--border);
+}
+
+.filter-btn.active {
+    background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+    color: white;
+    box-shadow: 0 4px 10px rgba(216, 79, 56, 0.2);
+}
+
+
+/* Grid món ăn */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* Card món ăn */
+.product-card {
+    background-color: var(--card-bg);
+    border-radius: var(--radius);
+    border: var(--border-style);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+}
+
+.card-image img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-content h3 {
+    font-size: 1.6rem;
+    color: var(--text);
+    margin-bottom: 10px;
+}
+
+.card-content .description {
+    font-size: 1rem;
+    color: var(--text);
+    opacity: 0.7;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.card-footer .price {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--secondary);
+}
+
+.add-to-cart-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+}
+
+/* ---- Thông báo Toast (Giữ nguyên) ---- */
+#toast-notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.toast {
+    background-color: #2ecc71;
+    color: white;
+    padding: 15px 25px;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    opacity: 0;
+    transform: translateX(100%);
+    animation: slideIn 0.5s forwards, fadeOut 0.5s 2.5s forwards;
+}
+
+@keyframes slideIn { to { opacity: 1; transform: translateX(0); } }
+@keyframes fadeOut { to { opacity: 0; transform: translateX(100%); } }
+
+/* ---- Footer (Giữ nguyên) ---- */
+.main-footer {
+    background-color: var(--card-bg);
+    color: var(--text);
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    border-top: var(--border-style);
+}
