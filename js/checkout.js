@@ -28,8 +28,8 @@ function displayCart() {
         itemName.className = 'cart-item-name';
         itemName.textContent = item.name;
 
-        const detailsRight = document.createElement('div');
-        detailsRight.className = 'cart-item-meta';
+        const itemMeta = document.createElement('div');
+        itemMeta.className = 'cart-item-meta';
 
         const itemQuantity = document.createElement('span');
         itemQuantity.className = 'cart-item-quantity';
@@ -41,9 +41,9 @@ function displayCart() {
         itemPrice.textContent = `${price.toLocaleString()}đ`;
         
         cartItem.appendChild(itemName);
-        detailsRight.appendChild(itemQuantity);
-        detailsRight.appendChild(itemPrice);
-        cartItem.appendChild(detailsRight);
+        itemMeta.appendChild(itemQuantity);
+        itemMeta.appendChild(itemPrice);
+        cartItem.appendChild(itemMeta);
         cartItemsDiv.appendChild(cartItem);
         
         totalPrice += price;
