@@ -317,6 +317,7 @@ body {
 
 .order-button:hover {
     background: linear-gradient(to left, #A02020, #C03828);
+    box-shadow: 0 0 15px rgba(220, 70, 60, 0.4);
 }
 
 /* Giỏ hàng */
