@@ -28,12 +28,11 @@
 body {
     font-family: Arial, sans-serif;
 
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-                url('../images/restaurant1.png'); /* Đổi 'nen-thuc-don.jpg' thành tên ảnh của bạn */
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../img/restaurant1.png');
     
-    background-size: cover;       /* Phủ đầy màn hình */
-    background-position: center;  /* Lấy tâm ảnh */
-    background-attachment: fixed; /* Giữ ảnh đứng yên khi cuộn trang */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 
     color: var(--text);
     line-height: 1.6;
