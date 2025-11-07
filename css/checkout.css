@@ -43,7 +43,6 @@ body {
 
     .nav-label {
         font-size: 11px;
-        font-family: Arial, sans-serif;
         font-weight: normal;
         margin-top: 2px;
     }
@@ -57,12 +56,12 @@ body {
 .main-nav {
     min-height: 64px;
     background-color: rgba(23, 20, 17, 0.75);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid #493b31;
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
 }
 
 .logo {
-    color: #eaad1f;
+    color: var(--secondary);
     font-size: 20px;
     font-weight: 700;
     letter-spacing: 1px;
@@ -90,7 +89,7 @@ body {
 
 .nav-menu li a {
     font-family: "Vollkorn", Arial, serif;
-    color: #FDF9EB !important;
+    color: var(--foreground) !important;
     font-weight: 600;
     font-size: 20px;
     position: relative;
@@ -103,7 +102,7 @@ body {
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: #FDF9EB;
+    background-color: var(--foreground);
     transition: width 0.3s ease-in-out;
 }
 
@@ -127,9 +126,10 @@ body {
     margin: 0;
     min-width: 0;
     padding: 32px 40px;
-    border: 2px solid #493B31;
+    border: 2px solid var(--border);
     border-radius: 15px;
     background-color: #ffffff;
+    color: #0A0A0A;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     box-sizing: border-box;
 }
@@ -139,6 +139,7 @@ body {
     font-size: 24px;
     margin: 0 0 16px 0;
     font-weight: 700;
+    color: #0A0A0A;
 }
 
 .input-info-1 {
@@ -164,7 +165,7 @@ body {
 }
 
 .input-info-1 input:focus {
-    border-color: #493B31;
+    border-color: var(--border);
     outline: none;
 }
 
@@ -210,9 +211,10 @@ body {
     margin-top: 16px;
     margin-bottom: 20px;
     padding: 16px;
-    border: 2px dashed #ddd;
+    border: 2px dashed var(--border);
     border-radius: 12px;
     background-color: #ffffff;
+    color: #0A0A0A;
 }
 
 .qr-image {
@@ -227,8 +229,8 @@ body {
 .qr-confirm-button {
     width: 100%;
     padding: 12px;
-    background-color: #1E88E5;
-    color: #ffffff;
+    background-color: #1565C0;
+    color: var(--foreground);
     border: none;
     border-radius: 8px;
     font-size: 16px;
@@ -237,7 +239,7 @@ body {
 }
 
 .qr-confirm-button:hover {
-    background-color: #1565C0;
+    background-color: #0D47A1;
 }
 
 .qr-confirm-button.confirmed {
@@ -275,12 +277,10 @@ body {
     background: none;
     box-sizing: border-box;
     transition: border-color 0.3s ease;
-    font-family: Arial, monospace;
-    font-size: 100%;
 }
 
 .credit-card-info input[type="text"]:focus {
-    border-color: #493B31;
+    border-color: var(--border);
     outline: none;
 }
 
@@ -309,14 +309,13 @@ body {
 .order-button {
     width: 100%;
     padding: 12px 28px;
-    background: linear-gradient(to right, #BC2828, #D84F38);
-    color: #ffffff;
+    background: linear-gradient(to right, var(--primary), var(--primary));
+    color: var(--foreground);
     border: none;
     border-radius: 8px;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
-    transition: background 0.3s ease;
 }
 
 .order-button:hover {
@@ -331,9 +330,10 @@ body {
     margin: 0;
     min-width: 0;
     padding: 32px 40px;
-    border: 2px solid #493B31;
+    border: 2px solid var(--border);
     border-radius: 15px;
     background-color: #ffffff;
+    color: #0A0A0A;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     box-sizing: border-box;
 }
@@ -391,11 +391,11 @@ body {
     flex-shrink: 0;
     justify-content: space-between;
     padding: 16px;
-    background-color: #3A2F28;
+    background-color: var(--card);
     border-radius: 8px;
     font-size: 18px;
     font-weight: 700;
-    color: #FDF9EB;
+    color: var(--foreground);
 }
 
 .empty-cart {
@@ -415,7 +415,7 @@ body {
     align-items: center;
     text-align: center;
     padding: 32px 40px;
-    border: 2px solid #493B31;
+    border: 2px solid var(--border);
     border-radius: 15px;
     background-color: #fff;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
@@ -455,15 +455,13 @@ body {
 .back-to-home-btn {
     display: inline-block;
     padding: 12px 28px;
-    background: linear-gradient(to right, #BC2828, #D84F38);
-    color: #ffffff;
+    background: linear-gradient(to right, var(--primary), var(--primary));
+    color: var(--foreground);
     border: none;
     border-radius: 8px;
     font-size: 16px;
     font-weight: 600;
-    cursor: pointer;
     text-decoration: none;
-    transition: background 0.3s ease;
 }
 
 .back-to-home-btn:hover {
