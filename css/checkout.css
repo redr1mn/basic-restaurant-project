@@ -9,7 +9,7 @@
 body {
     display: flex;
     flex-direction: column;
-    background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url("../images/restaurant1.png") center/cover no-repeat fixed;
+    background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url("../img/restaurant1.png") center/cover no-repeat fixed;
     min-height: 100vh;
     background-size: cover;
 }
