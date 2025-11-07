@@ -5,29 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thực đơn - Nhà hàng</title>
     
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css2?family=Vollkorn:wght@400;600;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="css/styletrangchu.css">
     
     <link rel="stylesheet" href="css/thucdon.css">
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
     <header>
-        <div class="container header-container">
-            <h1 class="logo">Hotpot & Grill</h1> 
-            <nav>
-                <ul>
-                    <li><a href="index.html">Trang chủ</a></li>
-                    <li><a href="Thucdon.html" class="active">Thực đơn</a></li>
-                    <li><a href="Datcho.html">Đặt bàn</a></li>
-                    <li><a href="cart.html">Giỏ hàng</a></li> <li><a href="checkout.html">Thanh toán</a></li> <li><a href="Lienhe.html">Liên hệ</a></li> </ul>
-            </nav>
-            <a href="cart.html" class="btn btn-cart">
-                <i class="fas fa-shopping-cart"></i>
-                <span id="cart-badge" class="badge">0</span>
-            </a>
-        </div>
+        <nav class="main-nav d-flex justify-content-between justify-content-lg-around align-items-center px-4">
+            <p class="my-0 logo">HOTPOT & GRILL</p>
+            <ul class="nav-menu d-flex gap-3 gap-lg-4 list-unstyled align-items-center my-0">
+                <li><a href="index.html" class="text-decoration-none d-inline-flex align-items-center gap-1"><span class="material-icons" aria-hidden="true">home</span><span class="nav-label">TRANG CHỦ</span></a></li>
+                <li><a href="Thucdon.html" class="text-decoration-none d-inline-flex align-items-center gap-1 active"><span class="material-icons" aria-hidden="true">menu_book</span><span class="nav-label">THỰC ĐƠN</span></a></li>
+                <li><a href="Datcho.html" class="text-decoration-none d-inline-flex align-items-center gap-1"><span class="material-icons" aria-hidden="true">event_seat</span><span class="nav-label">ĐẶT BÀN</span></a></li>
+                <li>
+                    <a href="cart.html" class="text-decoration-none d-inline-flex align-items-center gap-1">
+                        <span class="material-icons" aria-hidden="true">shopping_cart</span>
+                        <span class="nav-label">GIỎ HÀNG</span>
+                        <span id="cart-badge" class="cart-badge-custom">0</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
     </header>
 
     <main class="container">
@@ -40,14 +46,32 @@
             <button class="btn filter-btn active" data-category="all">
                 <i class="fas fa-utensils"></i> Tất cả
             </button>
+            <button class="btn filter-btn" data-category="combo">
+                <i class="fas fa-star"></i> Combo
+            </button>
+            <button class="btn filter-btn" data-category="hotpot">
+                <i class="fas fa-fire"></i> Lẩu
+            </button>
+            <button class="btn filter-btn" data-category="grill">
+                <i class="fas fa-drumstick-bite"></i> Đồ nướng
+            </button>
+            <button class="btn filter-btn" data-category="dipping">
+                <i class="fas fa-bacon"></i> Đồ nhúng
+            </button>
             <button class="btn filter-btn" data-category="main">
-                <i class="fas fa-drumstick-bite"></i> Món chính
+                <i class="fas fa-utensil-spoon"></i> Món ăn no
+            </button>
+            <button class="btn filter-btn" data-category="side">
+                <i class="fas fa-cookie-bite"></i> Ăn kèm
             </button>
             <button class="btn filter-btn" data-category="drink">
                 <i class="fas fa-cocktail"></i> Đồ uống
             </button>
             <button class="btn filter-btn" data-category="dessert">
                 <i class="fas fa-ice-cream"></i> Tráng miệng
+            </button>
+            <button class="btn filter-btn" data-category="sauce">
+                <i class="fas fa-pepper-hot"></i> Nước chấm
             </button>
         </div>
 

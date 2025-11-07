@@ -3,6 +3,8 @@
     --primary: #BC2828;
     --secondary: #EAAD1F;
     --text: #FDF9EB;
+    /* THÊM MỚI: Cần 1 biến --foreground cho nav.css */
+    --foreground: #FDF9EB; 
     --bg: #171411;
     --card-bg: #241C17;
     --muted: #3A2F28;
@@ -25,7 +27,14 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: var(--bg);
+
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('../images/restaurant1.png'); /* Đổi 'nen-thuc-don.jpg' thành tên ảnh của bạn */
+    
+    background-size: cover;       /* Phủ đầy màn hình */
+    background-position: center;  /* Lấy tâm ảnh */
+    background-attachment: fixed; /* Giữ ảnh đứng yên khi cuộn trang */
+
     color: var(--text);
     line-height: 1.6;
 }
@@ -41,9 +50,7 @@ img {
     display: block;
 }
 
-/* ---- Component .btn chung ---- */
-/* (Style .btn này có thể đã có trong styletrangchu.css, 
-   nhưng chúng ta định nghĩa lại ở đây để đảm bảo các nút của bạn hoạt động) */
+/* ---- Component .btn chung (Cho các nút lọc) ---- */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -65,45 +72,91 @@ img {
     box-shadow: 0 4px 10px rgba(216, 79, 56, 0.2);
 }
 
-/* ==================================================
- PHẦN STYLE NAVBAR CŨ ĐÃ BỊ XÓA BỎ 
- (File styletrangchu.css sẽ lo việc này)
-==================================================
-*/
+/* ===============================================
+   PHẦN NAVBAR CŨ ĐÃ BỊ XÓA HẾT
+   =============================================== */
 
-/* ---- Style bổ sung cho Nút Giỏ Hàng trên Navbar chung ---- */
-.btn-cart {
-    padding: 8px 16px;
-    font-size: 14px;
-    /* Bỏ text "Xem giỏ hàng" nếu muốn, chỉ giữ icon */
-    /* font-size: 18px; padding: 10px 12px; */ 
+/* ===============================================
+   THÊM MỚI: CODE TỪ FILE NAV.CSS CỦA BẠN
+   =============================================== */
+
+.main-nav {
+    min-height: 64px;
+    background-color: rgba(23, 20, 17, 0.75);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    /* THÊM: Cần position: sticky để nó luôn ở trên cùng */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-.btn-cart .badge {
-    background-color: var(--secondary);
-    color: var(--bg);
+.logo {
+    color: var(--secondary);
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.nav-menu li a {
+    font-family: "Vollkorn", Arial, serif;
+    color: var(--foreground) !important;
+    font-weight: 600;
+    font-size: 20px;
+    position: relative;
+    /* THÊM: Cần padding cho link */
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.nav-menu li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--foreground);
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-menu li a:hover::after {
+    width: 100%;
+}
+
+.nav-menu li a > .material-icons {
+    font-size: 20px;
+}
+
+/* THÊM MỚI: Style cho badge giỏ hàng */
+.cart-badge-custom {
+    background-color: var(--primary);
+    color: var(--text);
     border-radius: 50%;
     padding: 2px 8px;
     font-size: 12px;
     margin-left: 8px;
     font-weight: bold;
+    font-family: Arial, sans-serif; /* Reset font */
+    display: none; /* JS sẽ bật lên */
 }
 
-/* Đánh dấu link "active" trên navbar */
-.header-container nav ul li a.active {
-    color: var(--primary); /* Hoặc màu vàng: var(--secondary) */
-    font-weight: 700;
+/* THÊM MỚI: Style cho link Active */
+.nav-menu li a.active {
+    color: var(--secondary) !important; /* Dùng màu logo cho active */
+}
+.nav-menu li a.active::after {
+    width: 100%;
 }
 
 
-/* ---- Phần Menu chính (Thiết kế của bạn - Giữ nguyên) ---- */
+/* ---- Phần Menu chính (Thiết kế của bạn) ---- */
 .menu-header {
     text-align: center;
-    /* Thêm padding-top để nội dung không bị navbar (nếu là fixed) che mất */
-    padding-top: 100px; 
+    padding-top: 40px;  /* Giảm padding vì navbar đã sticky */
     margin-bottom: 40px;
 }
-
+/* ... (Rest of your menu styling: .menu-header h1, .category-filters, .product-grid, etc. remains unchanged) ... */
 .menu-header h1 {
     font-size: 2.8rem;
     color: var(--primary);
@@ -129,6 +182,8 @@ img {
 .filter-btn {
     background: var(--muted);
     color: var(--text);
+    padding: 10px 15px; /* Chỉnh lại padding 1 chút */
+    font-size: 15px;
 }
 
 .filter-btn:hover {
@@ -210,7 +265,7 @@ img {
     font-size: 14px;
 }
 
-/* ---- Thông báo Toast (Giữ nguyên) ---- */
+/* ---- Thông báo Toast ---- */
 #toast-notification {
     position: fixed;
     bottom: 20px;
@@ -236,7 +291,7 @@ img {
 @keyframes slideIn { to { opacity: 1; transform: translateX(0); } }
 @keyframes fadeOut { to { opacity: 0; transform: translateX(100%); } }
 
-/* ---- Footer (Giữ nguyên) ---- */
+/* ---- Footer ---- */
 .main-footer {
     background-color: var(--card-bg);
     color: var(--text);
@@ -244,4 +299,48 @@ img {
     padding: 20px 0;
     margin-top: 40px;
     border-top: var(--border-style);
+}
+
+/* ===============================================
+   THÊM MỚI: CODE CSS RESPONSIVE CỦA BẠN
+   =============================================== */
+
+@media (min-width: 1200px) {
+    .container-fluid {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768.01px) {
+    .nav-menu li a {
+        flex-direction: column;
+        gap: 0 !important;
+        font-size: 16px;
+    }
+
+    .nav-label {
+        font-size: 11px;
+        font-weight: normal;
+        margin-top: 2px;
+        text-align: center;
+    }
+
+    .nav-menu li a::after {
+        display: none;
+    }
+    
+    /* THÊM: Sửa lại badge giỏ hàng cho mobile */
+    .cart-badge-custom {
+        position: absolute;
+        top: 2px;
+        right: 4px;
+        font-size: 10px;
+        padding: 2px 5px;
+        margin-left: 0;
+    }
+    .nav-menu li a {
+        padding-top: 5px; /* Giảm padding cho mobile */
+        padding-bottom: 5px;
+    }
 }
