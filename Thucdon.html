@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thực đơn - Nhà hàng</title>
+    
+    <link rel="stylesheet" href="css/styletrangchu.css">
+    
+    <link rel="stylesheet" href="css/thucdon.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="container header-container">
+            <h1 class="logo">Hotpot & Grill</h1> 
+            <nav>
+                <ul>
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="Thucdon.html" class="active">Thực đơn</a></li>
+                    <li><a href="Datcho.html">Đặt bàn</a></li>
+                    <li><a href="cart.html">Giỏ hàng</a></li> <li><a href="checkout.html">Thanh toán</a></li> <li><a href="Lienhe.html">Liên hệ</a></li> </ul>
+            </nav>
+            <a href="cart.html" class="btn btn-cart">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-badge" class="badge">0</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="menu-header">
+            <h1>Thực Đơn Nhà Hàng</h1>
+            <p>Khám phá các món ăn đặc sắc được chế biến từ nguyên liệu tươi ngon nhất.</p>
+        </div>
+        
+        <div class="category-filters">
+            <button class="btn filter-btn active" data-category="all">
+                <i class="fas fa-utensils"></i> Tất cả
+            </button>
+            <button class="btn filter-btn" data-category="main">
+                <i class="fas fa-drumstick-bite"></i> Món chính
+            </button>
+            <button class="btn filter-btn" data-category="drink">
+                <i class="fas fa-cocktail"></i> Đồ uống
+            </button>
+            <button class="btn filter-btn" data-category="dessert">
+                <i class="fas fa-ice-cream"></i> Tráng miệng
+            </button>
+        </div>
+
+        <section id="product-list" class="product-grid">
+            </section>
+    </main>
+
+    <div id="toast-notification"></div>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 Nhà hàng. Phát triển bởi Nhóm 1.</p>
+        </div>
+    </footer>
+
+    <script src="js/thucdon.js"></script>
+</body>
+</html>

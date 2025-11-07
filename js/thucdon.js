@@ -1,66 +1,74 @@
-// Đợi DOM tải xong mới chạy JS
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- 1. DỮ LIỆU GIẢ LẬP (Mock Data) ---
-    // (Bạn có thể thay đổi/thêm bớt tùy ý)
+    // (Đã cập nhật đường dẫn ảnh để trỏ vào thư mục /images/)
     const mockFoodData = [
         {
             id: 1,
             name: 'Phở Bò Tái Chín',
             price: 55000,
-            img: 'https://i.imgur.com/xO1tXJp.jpeg', // Sử dụng link ảnh thật
+            img: 'images/pho.jpg', // Giả sử bạn có ảnh này
+            description: 'Nước lèo thanh ngọt, thịt bò tươi mềm.',
             category: 'main'
         },
         {
             id: 2,
             name: 'Bún Chả Hà Nội',
             price: 45000,
-            img: 'https://i.imgur.com/qMvXzXo.jpeg',
+            img: 'images/buncha.jpg',
+            description: 'Thịt nướng thơm lừng, nước mắm chua ngọt.',
             category: 'main'
         },
         {
             id: 3,
             name: 'Cơm Tấm Sườn Bì',
             price: 50000,
-            img: 'https://i.imgur.com/E8S9E8W.jpeg',
+            img: 'images/comtam.jpg',
+            description: 'Sườn nướng mật ong, bì, chả trứng.',
             category: 'main'
         },
         {
             id: 4,
             name: 'Cà Phê Sữa Đá',
             price: 25000,
-            img: 'https://i.imgur.com/xXN32mC.jpeg',
+            img: 'images/caphe.jpg',
+            description: 'Hạt cà phê rang xay, sữa đặc Ông Thọ.',
             category: 'drink'
         },
         {
             id: 5,
             name: 'Trà Đào Cam Sả',
             price: 35000,
-            img: 'https://i.imgur.com/vP9tqYy.jpeg',
+            img: 'images/tradao.jpg',
+            description: 'Trà thanh mát, đào giòn, cam sả thơm.',
             category: 'drink'
         },
         {
             id: 6,
             name: 'Chè Khúc Bạch',
             price: 30000,
-            img: 'https://i.imgur.com/R3x3fXw.jpeg',
+            img: 'images/chekhucbach.jpg',
+            description: 'Mát lạnh, béo ngậy vị phô mai, nhãn.',
             category: 'dessert'
         },
         {
             id: 7,
             name: 'Bánh Mì Heo Quay',
             price: 30000,
-            img: 'https://i.imgur.com/5c9tqZy.jpeg',
+            img: 'images/banhmi.jpg',
+            description: 'Bánh mì giòn, heo quay da giòn, rau dưa.',
             category: 'main'
         },
         {
             id: 8,
             name: 'Panna Cotta Dâu',
             price: 40000,
-            img: 'https://i.imgur.com/s6wE2E8.jpeg',
+            img: 'images/pannacotta.jpg',
+            description: 'Mềm mịn, béo ngậy, sốt dâu tằm chua ngọt.',
             category: 'dessert'
         }
     ];
+    // (Nếu không có ảnh, bạn có thể thay lại link imgur cũ)
 
     // --- 2. LẤY CÁC PHẦN TỬ DOM ---
     const productListContainer = document.getElementById('product-list');
@@ -75,27 +83,33 @@ document.addEventListener('DOMContentLoaded', () => {
      * @param {Array} products - Mảng món ăn cần hiển thị
      */
     function renderProducts(products) {
-        // Xóa nội dung cũ
         productListContainer.innerHTML = '';
 
         if (products.length === 0) {
-            productListContainer.innerHTML = '<p>Không tìm thấy món ăn phù hợp.</p>';
+            productListContainer.innerHTML = '<p style="text-align: center; font-size: 1.2rem;">Không tìm thấy món ăn phù hợp.</p>';
             return;
         }
 
-        // Lặp qua mảng dữ liệu để tạo HTML
         products.forEach(item => {
             const productCard = document.createElement('article');
             productCard.className = 'product-card';
             
-            // Định dạng giá tiền (ví dụ: 50000 -> 50,000đ)
             const formattedPrice = item.price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
 
             productCard.innerHTML = `
-                <img src="${item.img}" alt="${item.name}">
-                <h3>${item.name}</h3>
-                <p class="price">${formattedPrice}</p>
-                <button class="btn add-to-cart-btn" data-id="${item.id}">Thêm vào giỏ</button>
+                <div class="card-image">
+                    <img src="${item.img}" alt="${item.name}">
+                </div>
+                <div class="card-content">
+                    <h3>${item.name}</h3>
+                    <p class="description">${item.description}</p>
+                    <div class="card-footer">
+                        <span class="price">${formattedPrice}</span>
+                        <button class="btn add-to-cart-btn" data-id="${item.id}">
+                            <i class="fas fa-plus"></i> Thêm
+                        </button>
+                    </div>
+                </div>
             `;
             productListContainer.appendChild(productCard);
         });
@@ -103,14 +117,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /**
      * Xử lý thêm món ăn vào giỏ hàng (localStorage)
-     * @param {number} productId - ID của món ăn
+     * (Logic này giữ nguyên, đã đúng yêu cầu nhóm)
      */
     function addToCart(productId) {
-        // Lấy giỏ hàng từ localStorage, nếu chưa có thì khởi tạo mảng rỗng
-        // Đây là key "cartItems" mà cả nhóm đã thống nhất
         let cart = JSON.parse(localStorage.getItem('cartItems')) || [];
-
-        // Tìm món ăn đầy đủ thông tin từ mockData
         const itemToAddDetails = mockFoodData.find(item => item.id === productId);
 
         if (!itemToAddDetails) {
@@ -118,41 +128,32 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Kiểm tra xem món ăn đã có trong giỏ hàng chưa
         const existingItemIndex = cart.findIndex(item => item.id === productId);
 
         if (existingItemIndex > -1) {
-            // Nếu đã có -> Tăng số lượng (đúng theo yêu cầu)
             cart[existingItemIndex].quantity += 1;
         } else {
-            // Nếu chưa có -> Thêm mới vào giỏ
             const newItem = {
                 id: itemToAddDetails.id,
                 name: itemToAddDetails.name,
                 price: itemToAddDetails.price,
-                quantity: 1
-                // Bạn có thể thêm img nếu Trọng An (Giỏ hàng) cần
-                // img: itemToAddDetails.img 
+                quantity: 1,
+                img: itemToAddDetails.img // Gửi cả ảnh cho An làm giỏ hàng
             };
             cart.push(newItem);
         }
 
-        // Lưu giỏ hàng mới vào localStorage
         localStorage.setItem('cartItems', JSON.stringify(cart));
-
-        // Cập nhật số lượng trên badge
         updateCartBadge();
-
-        // Hiển thị thông báo thành công
         showToast(`Đã thêm "${itemToAddDetails.name}" vào giỏ!`);
     }
 
     /**
      * Cập nhật số lượng hiển thị trên icon giỏ hàng
+     * (Giữ nguyên)
      */
     function updateCartBadge() {
         let cart = JSON.parse(localStorage.getItem('cartItems')) || [];
-        // Tính tổng số lượng (quantity) của tất cả các món
         const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
         
         cartBadge.textContent = totalQuantity;
@@ -161,60 +162,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /**
      * Hiển thị thông báo (toast)
-     * @param {string} message - Nội dung thông báo
+     * (Giữ nguyên)
      */
     function showToast(message) {
         const toast = document.createElement('div');
         toast.className = 'toast';
         toast.textContent = message;
-
         toastContainer.appendChild(toast);
-
-        // Tự động xóa thông báo sau 3 giây
-        setTimeout(() => {
-            toast.remove();
-        }, 3000);
+        setTimeout(() => toast.remove(), 3000);
     }
 
-    // --- 4. GẮN KẾT SỰ KIỆN ---
+    // --- 4. GẮN KẾT SỰ KIỆN (Giữ nguyên) ---
 
-    // 4.1. Hiển thị tất cả món ăn khi tải trang
     renderProducts(mockFoodData);
-
-    // 4.2. Cập nhật badge giỏ hàng khi tải trang (phòng trường hợp F5)
     updateCartBadge();
 
-    // 4.3. Sử dụng Event Delegation cho nút "Thêm vào giỏ"
-    // Bắt sự kiện click trên toàn bộ container, nhưng chỉ xử lý nếu click trúng nút
     productListContainer.addEventListener('click', (event) => {
-        // Kiểm tra xem phần tử được click có class 'add-to-cart-btn' không
-        if (event.target.classList.contains('add-to-cart-btn')) {
-            const button = event.target;
-            // Lấy data-id từ nút
+        // Tìm nút gần nhất được click
+        const button = event.target.closest('.add-to-cart-btn');
+        if (button) {
             const productId = parseInt(button.dataset.id);
             addToCart(productId);
         }
     });
 
-    // 4.4. Xử lý sự kiện cho các nút Lọc
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
-            // Xóa class 'active' khỏi tất cả các nút
             filterButtons.forEach(btn => btn.classList.remove('active'));
-            // Thêm class 'active' cho nút vừa click
             button.classList.add('active');
 
             const category = button.dataset.category;
-
-            if (category === 'all') {
-                renderProducts(mockFoodData);
-            } else {
-                const filteredProducts = mockFoodData.filter(item => item.category === category);
-                renderProducts(filteredProducts);
-            }
+            const filteredProducts = (category === 'all')
+                ? mockFoodData
+                : mockFoodData.filter(item => item.category === category);
+                
+            renderProducts(filteredProducts);
         });
     });
-
-    // Kích hoạt nút "Tất cả" làm mặc định
-    document.querySelector('.filter-btn[data-category="all"]').classList.add('active');
 });
