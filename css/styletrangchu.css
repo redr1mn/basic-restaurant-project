@@ -5,18 +5,27 @@
   box-sizing: border-box;
 }
 
+.carousel-item img {
+    height: 25vh;
+    object-fit: cover;
+}
+.card img {
+    height: 25vh;
+    object-fit: cover;  
+}
+
 /* VARIABLES (BẢNG MÀU) */
 :root {
   --background: #171411;
-  --foreground: #fdf9eb;
-  --card: #241c17;
-  --primary: #bc2828;
-  --secondary: #eaad1f;
-  --muted: #3a2f28;
-  --border: #493b31;
-  --destructive: #f23838;
-  --gradient-start: #bc2828;
-  --gradient-end: #d84f38;
+  --foreground: #FDF9EB;
+  --card: #241C17;
+  --primary: #BC2828;
+  --secondary: #EAAD1F;
+  --muted: #3A2F28;
+  --border: #493B31;
+  --destructive: #F23838;
+  --gradient-start: #BC2828;
+  --gradient-end: #D84F38;
 }
 
 /* GLOBAL */
@@ -54,7 +63,7 @@ header {
 .logo {
   font-weight: 700;
   font-size: 20px;
-  color: var(--secondary);
+  color: #EAAD1F;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -110,8 +119,7 @@ nav a:hover {
 .hero {
   position: relative;
   height: 90vh;
-  background: url("https://www.chuphinhsanpham.vn/wp-content/uploads/2022/09/studio-chup-anh-mon-an-dong-nai-lam-menu-chuyen-nghiep-21.jpg")
-    center/cover no-repeat;
+  background: url('https://www.chuphinhsanpham.vn/wp-content/uploads/2022/09/studio-chup-anh-mon-an-dong-nai-lam-menu-chuyen-nghiep-21.jpg') center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -190,11 +198,7 @@ nav a:hover {
 
 /* PRIMARY BUTTON (GRADIENT) */
 .btn.primary {
-  background: linear-gradient(
-    90deg,
-    var(--gradient-start),
-    var(--gradient-end)
-  );
+  background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
   border: none;
   color: #fff;
   box-shadow: 0 0 10px rgba(220, 70, 60, 0.4);
@@ -220,7 +224,7 @@ nav a:hover {
 /* SLIDER SECTION */
 .slider-section {
   padding: 50px 0;
-  background-color: var(--card);
+  background-color: var(--card);;
 }
 
 .swiper-container {
@@ -233,106 +237,103 @@ nav a:hover {
   height: 250px;
 }
 
-.swiper-button-next,
-.swiper-button-prev {
+.swiper-button-next, .swiper-button-prev {
   color: var(--secondary);
 }
 
-/* FOOTER */
-footer {
-  background: var(--card);
-  padding: 25px 10px;
-  text-align: center;
+/* ========== FOOTER ========== */
+.footer {
+  background-color: var(--background);
+  color: var(--foreground);
+  padding: 60px 0 30px;
   border-top: 1px solid var(--border);
 }
 
-.footer-container {
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  align-items: start;
+}
+
+.footer-column {
+  line-height: 1.8;
+}
+
+.footer-title {
+  color: var(--secondary);
+  font-size: 20px;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.footer-title::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: var(--primary);
+  margin-top: 5px;
+  border-radius: 2px;
+}
+
+.footer-column a {
+  color: var(--foreground);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+  color: var(--secondary);
+}
+
+.footer-links {
+  list-style: none;
+}
+
+.footer-links li {
+  margin: 6px 0;
+}
+
+.footer-column i {
+  color: var(--secondary);
+  margin-right: 8px;
+}
+
+/* Social icons */
+.social-icons {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   gap: 15px;
 }
 
-.footer-container p {
+.social-icons a {
+  background: var(--card);
   color: var(--foreground);
-  font-size: 15px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: 0.3s;
 }
 
-.social-links a {
-  color: var(--foreground);
-  margin: 0 10px;
-  font-size: 22px;
-  transition: color 0.3s;
+.social-icons a:hover {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+  transform: translateY(-3px);
 }
 
-.social-links a:hover {
-  color: var(--primary);
+/* Footer bottom */
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 14px;
+  color: #bbb;
+  border-top: 1px solid var(--border);
+  padding-top: 15px;
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-    gap: 15px;
-    background: rgba(23, 20, 17, 0.95);
-    padding: 20px;
-    border-radius: 10px;
-    position: absolute;
-    top: 100%;
-    right: 20px;
-    display: none; /* Ẩn menu trên mobile ban đầu */
-  }
-
-  nav ul.active {
-    display: flex; /* Hiển thị menu khi có class 'active' */
-  }
-
-  .header-container {
-    position: relative;
-  }
-
-  .menu-toggle {
-    display: block;
-    font-size: 24px;
-    cursor: pointer;
-    color: var(--foreground);
-  }
-
-  .search-bar,
-  .login-btn {
-    width: 100%;
-    margin: 10px 0;
-  }
-
-  .hero h1 {
-    font-size: 38px;
-  }
-
-  .hero p {
-    font-size: 16px;
-  }
-
-  .swiper-container {
-    width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero {
-    height: 70vh;
-    margin-top: 50px;
-  }
-
-  .hero h1 {
-    font-size: 28px;
-  }
-
-  .hero-buttons .btn {
-    width: 100%;
-    margin: 10px 0;
-  }
-
-  .swiper-slide img {
-    height: 200px;
-  }
-}
