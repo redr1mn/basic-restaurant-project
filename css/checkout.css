@@ -34,7 +34,7 @@ body {
     }
 }
 
-@media (max-width: 767.98px) {
+@media (max-width: 768.01px) {
     .nav-menu li a {
         flex-direction: column;
         gap: 0 !important;
