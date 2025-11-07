@@ -26,7 +26,7 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Poppins", sans-serif;
 
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../img/restaurant1.png');
     
@@ -98,12 +98,11 @@ img {
 }
 
 .nav-menu li a {
-    font-family: "Vollkorn", Arial, serif;
+    font-family: "Poppins", sans-serif;   /* was: "Poppins", serif */
     color: var(--foreground) !important;
     font-weight: 600;
     font-size: 20px;
     position: relative;
-    /* THÊM: Cần padding cho link */
     padding-top: 10px;
     padding-bottom: 10px;
 }
@@ -136,16 +135,8 @@ img {
     font-size: 12px;
     margin-left: 8px;
     font-weight: bold;
-    font-family: Arial, sans-serif; /* Reset font */
+    font-family: "Poppins", sans-serif; /* Reset font */
     display: none; /* JS sẽ bật lên */
-}
-
-/* THÊM MỚI: Style cho link Active */
-.nav-menu li a.active {
-    color: var(--secondary) !important; /* Dùng màu logo cho active */
-}
-.nav-menu li a.active::after {
-    width: 100%;
 }
 
 

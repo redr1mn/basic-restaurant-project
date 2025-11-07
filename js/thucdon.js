@@ -392,34 +392,35 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- Cart helpers (shared with checkout.js expectation) ---
+    function getCart() {
+        return JSON.parse(localStorage.getItem('cart')) || [];
+    }
+    function setCart(cart) {
+        localStorage.setItem('cart', JSON.stringify(cart));
+    }
+
     /**
      * Xử lý thêm món ăn vào giỏ hàng (localStorage)
      */
     function addToCart(productId) {
-        let cart = JSON.parse(localStorage.getItem('cartItems')) || [];
+        let cart = getCart();
         const itemToAddDetails = mockFoodData.find(item => item.id === productId);
+        if (!itemToAddDetails) return;
 
-        if (!itemToAddDetails) {
-            console.error('Không tìm thấy sản phẩm!');
-            return;
-        }
-
-        const existingItemIndex = cart.findIndex(item => item.id === productId);
-
-        if (existingItemIndex > -1) {
-            cart[existingItemIndex].quantity += 1;
+        const existing = cart.find(i => i.id === productId);
+        if (existing) {
+            existing.quantity = (existing.quantity || 1) + 1;
         } else {
-            const newItem = {
+            cart.push({
                 id: itemToAddDetails.id,
                 name: itemToAddDetails.name,
                 price: itemToAddDetails.price,
                 quantity: 1,
-                img: itemToAddDetails.img 
-            };
-            cart.push(newItem);
+                img: itemToAddDetails.img
+            });
         }
-
-        localStorage.setItem('cartItems', JSON.stringify(cart));
+        setCart(cart);
         updateCartBadge();
         showToast(`Đã thêm "${itemToAddDetails.name}" vào giỏ!`);
     }
@@ -428,9 +429,8 @@ document.addEventListener('DOMContentLoaded', () => {
      * Cập nhật số lượng hiển thị trên icon giỏ hàng
      */
     function updateCartBadge() {
-        let cart = JSON.parse(localStorage.getItem('cartItems')) || [];
-        const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
-        
+        let cart = getCart();
+        const totalQuantity = cart.reduce((t, i) => t + (i.quantity || 1), 0);
         cartBadge.textContent = totalQuantity;
         cartBadge.style.display = totalQuantity > 0 ? 'inline-block' : 'none';
     }

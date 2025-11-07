@@ -31,7 +31,7 @@
 
 /* GLOBAL */
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif !important;
   color: var(--foreground);
   background-color: var(--background);
 }
@@ -357,7 +357,7 @@ nav a:hover {
 }
 
 .nav-menu li a {
-    font-family: "Vollkorn", Arial, serif;
+    font-family: "Poppins", sans-serif;   /* was: "Vollkorn", Arial, serif */
     color: var(--foreground) !important;
     font-weight: 600;
     font-size: 20px;
