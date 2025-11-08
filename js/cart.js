@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 3000);
     }
 
-    // Update cart badge
+    /* Update cart badge
     function updateCartBadge() {
         const cart = getCart();
         const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cartBadge.style.display = 'none';
         }
     }
+    */
 
     // Calculate total
     function calculateTotal() {
@@ -83,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             saveCart(cart);
             renderCart();
-            updateCartBadge();
+            // updateCartBadge();
         }
     }
 
@@ -97,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cart.splice(itemIndex, 1);
             saveCart(cart);
             renderCart();
-            updateCartBadge();
+            // updateCartBadge();
             showToast(`Đã xóa "${itemName}" khỏi giỏ hàng`, 'error');
         }
     }
@@ -107,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (confirm('Bạn có chắc muốn xóa tất cả sản phẩm trong giỏ hàng?')) {
             localStorage.removeItem('cartItems');
             renderCart();
-            updateCartBadge();
+            // updateCartBadge();
             showToast('Đã xóa toàn bộ giỏ hàng', 'error');
         }
     }
@@ -187,7 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initial render
     renderCart();
-    updateCartBadge();
+    // updateCartBadge();
 
     // Add CSS animation for toast slideOut
     const style = document.createElement('style');
