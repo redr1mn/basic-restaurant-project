@@ -84,6 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             saveCart(cart);
             renderCart();
+            window.updateCartBadge && window.updateCartBadge(); // refresh badge
             // updateCartBadge();
         }
     }
@@ -98,6 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cart.splice(itemIndex, 1);
             saveCart(cart);
             renderCart();
+            window.updateCartBadge && window.updateCartBadge(); // refresh badge
             // updateCartBadge();
             showToast(`Đã xóa "${itemName}" khỏi giỏ hàng`, 'error');
         }
@@ -106,8 +108,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Clear all cart
     function clearCart() {
         if (confirm('Bạn có chắc muốn xóa tất cả sản phẩm trong giỏ hàng?')) {
-            localStorage.removeItem('cartItems');
+            localStorage.removeItem('cart'); // correct key
             renderCart();
+            window.updateCartBadge && window.updateCartBadge(); // refresh badge
             // updateCartBadge();
             showToast('Đã xóa toàn bộ giỏ hàng', 'error');
         }
@@ -188,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initial render
     renderCart();
-    // updateCartBadge();
+    window.updateCartBadge && window.updateCartBadge(); // refresh badge
 
     // Add CSS animation for toast slideOut
     const style = document.createElement('style');
