@@ -11,7 +11,6 @@ body {
     flex-direction: column;
     background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url("../img/restaurant1.png") center/cover no-repeat fixed;
     min-height: 100vh;
-    background-size: cover;
 }
 
 /* Main Container
@@ -120,7 +119,6 @@ body {
     display: flex;
     flex-direction: column;
     flex: 1;
-    margin: 0;
     min-width: 0;
     padding: 32px 40px;
     border: 2px solid var(--border);
@@ -128,7 +126,6 @@ body {
     background-color: #ffffff;
     color: #0A0A0A;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-    box-sizing: border-box;
 }
 
 .order-info h1 {
@@ -157,7 +154,6 @@ body {
     border: 2px solid #ddd;
     border-radius: 8px;
     background: none;
-    box-sizing: border-box;
     transition: border-color 0.3s ease;
 }
 
@@ -228,7 +224,6 @@ body {
     padding: 12px;
     background-color: #1565C0;
     color: var(--foreground);
-    border: none;
     border-radius: 8px;
     font-size: 16px;
     font-weight: 600;
@@ -272,7 +267,6 @@ body {
     border: 2px solid #ddd;
     border-radius: 8px;
     background: none;
-    box-sizing: border-box;
     transition: border-color 0.3s ease;
 }
 
@@ -306,9 +300,8 @@ body {
 .order-button {
     width: 100%;
     padding: 12px 28px;
-    background: linear-gradient(to right, var(--primary), var(--primary));
+    background-color: var(--primary);
     color: var(--foreground);
-    border: none;
     border-radius: 8px;
     font-size: 16px;
     font-weight: 600;
@@ -325,7 +318,6 @@ body {
     display: flex;
     flex-direction: column;
     flex: 1;
-    margin: 0;
     min-width: 0;
     padding: 32px 40px;
     border: 2px solid var(--border);
@@ -333,7 +325,6 @@ body {
     background-color: #ffffff;
     color: #0A0A0A;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-    box-sizing: border-box;
 }
 
 .cart-container h1 {
@@ -389,7 +380,7 @@ body {
     flex-shrink: 0;
     justify-content: space-between;
     padding: 16px;
-    background-color: var(--card);
+    background-color: var(--card, transparent);
     border-radius: 8px;
     font-size: 18px;
     font-weight: 700;
@@ -397,7 +388,6 @@ body {
 }
 
 .empty-cart {
-    justify-content: center;
     text-align: center;
     padding: 40px;
     font-size: 20px;
@@ -417,7 +407,6 @@ body {
     border-radius: 15px;
     background-color: #fff;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-    box-sizing: border-box;
 }
 
 .payment-successful-container .checkmark-icon {
@@ -453,9 +442,8 @@ body {
 .back-to-home-btn {
     display: inline-block;
     padding: 12px 28px;
-    background: linear-gradient(to right, var(--primary), var(--primary));
+    background-color: var(--primary);
     color: var(--foreground);
-    border: none;
     border-radius: 8px;
     font-size: 16px;
     font-weight: 600;
